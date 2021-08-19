@@ -20,4 +20,9 @@ public class TodoService {
     public List<Todo> getTodoList() {
         return todoRepository.findAll();
     }
+
+    public Todo addTodoItem(Todo todo){
+        return todoRepository.save(todo);
+
+    }
 }

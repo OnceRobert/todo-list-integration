@@ -25,4 +25,10 @@ public class TodoService {
         return todoRepository.save(todo);
 
     }
+
+    public Todo updateTodo(Integer id, Todo todo) {
+        Todo updatedTodo = todoRepository.getById(id);
+        updatedTodo.setDone(!updatedTodo.isDone());
+        return todoRepository.save(updatedTodo);
+    }
 }

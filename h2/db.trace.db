@@ -1,0 +1,3 @@
+2021-08-19 16:16:27 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TODOS" not found; SQL statement:
+select * from todos [42102-200]

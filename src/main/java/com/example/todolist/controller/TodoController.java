@@ -7,26 +7,28 @@ import com.example.todolist.entity.Todo;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
-
-    @Autowired
     private TodoService todoService;
 
+    @Autowired
     public TodoController(TodoService todoService){this.todoService = todoService;}
 
-    @CrossOrigin
     @GetMapping()
     public List<Todo> getAllTodos(){
         return todoService.getTodoList();
     }
 
-    @CrossOrigin
     @PostMapping()
     public Todo addTodo(@RequestBody Todo todo){
         return todoService.addTodoItem(todo);
     }
 
-
+    @PutMapping("/{id}")
+    public Todo test(@PathVariable Integer id, @RequestBody Todo todo){
+        return todoService.updateTodo(id,todo);
+    }
+    
 }

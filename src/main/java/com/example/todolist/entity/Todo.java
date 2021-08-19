@@ -10,23 +10,22 @@ public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-
+    private Integer id;
     private String text;
     private boolean done;
 
-    public Todo(String text) {
-        this.text = text;
-        done = false;
-    }
+//    public Todo(String text) {
+//        this.text = text;
+//        done = false;
+//    }
 
     public Todo(){}
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

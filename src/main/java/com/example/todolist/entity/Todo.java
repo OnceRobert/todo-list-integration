@@ -20,6 +20,8 @@ public class Todo {
         done = false;
     }
 
+    public Todo(){}
+
     public Integer getId() {
         return id;
     }

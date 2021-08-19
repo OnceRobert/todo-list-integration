@@ -76,6 +76,19 @@ class TodolistApplicationTests {
 				.andExpect(jsonPath("$.done").value(false));
 	}
 
+	@Test
+	void should_return_no_todo_item_when_delete_given_id() throws Exception {
+		//given
+		final Todo todo = new Todo("Momo");
+		Todo savedTodo = todoRepository.save(todo);
+
+		//when
+		//then
+		int id = savedTodo.getId();
+		mockMvc.perform(MockMvcRequestBuilders.delete("/todos/{id}",id).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+
 
 
 

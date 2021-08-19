@@ -21,6 +21,11 @@ public class Todo {
 
     public Todo(){}
 
+    public Todo(String text) {
+        this.text = text;
+        done = false;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -59,7 +59,22 @@ class TodolistApplicationTests {
 				.andExpect(jsonPath("$.done").value(false));
 	}
 
-	
+	@Test
+	void should_update_employee_when_call_update_employee_api() throws Exception
+	{
+		Todo savedTodo = todoRepository.save(new Todo("Eat Bananas"));
+		String todo = "{"+
+				"        \"text\": \"Display Candybong\"\n" +
+				"    }";
+		//when
+		int id = savedTodo.getId();
+		//then
+		mockMvc.perform(MockMvcRequestBuilders.put("/todos/{id}",id)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(todo))
+				.andExpect(jsonPath("$.text").value("Display Candybong"))
+				.andExpect(jsonPath("$.done").value(false));
+	}
 
 
 
